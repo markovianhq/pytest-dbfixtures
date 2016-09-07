@@ -215,7 +215,7 @@ def postgresql(process_fixture_name, db=None, scope='function'):
     postgresql database factory.
 
     :param str process_fixture_name: name of the process fixture
-    :param int db: database name
+    :param str db: database name
     :param str scope: scope of database fixture
     :rtype: func
     :returns: function which makes a connection to postgresql
