@@ -210,17 +210,18 @@ def postgresql_proc(executable=None, host=None, port=-1, logs_prefix=''):
     return postgresql_proc_fixture
 
 
-def postgresql(process_fixture_name, db=None):
+def postgresql(process_fixture_name, db=None, scope='function'):
     """
     postgresql database factory.
 
     :param str process_fixture_name: name of the process fixture
     :param int db: database name
+    :param str scope: scope of database fixture
     :rtype: func
     :returns: function which makes a connection to postgresql
     """
 
-    @pytest.fixture
+    @pytest.fixture(scope=scope)
     def postgresql_factory(request):
         """
         #. Load required process fixture.
